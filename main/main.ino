@@ -3,31 +3,31 @@
 #define ENTER 10
 
 //-------------------------------pin setup-------------------------------//-----------
-const int dirPin[]= {2,4};  // Direction
-const int stepPin[] = {3,5}; // Step
+const int dirPin[]= {2,4};  //Array of the Direction pins 
+const int stepPin[] = {3,5}; // Array of the Step pins
 
 //-------------------------------variables definition-------------------------------//-----------
-char RecByte;
-char motor;
-int bEnterMenu, bReadMovement=0;
-int movement_update=0;
-const int STEPS_PER_REV = 200;
-int steps;
-boolean start_motor_b = 0;
-boolean stop_motor = 0;
-float movement;
-int pitch = 2;
-long positions[2]={0,0}; // Array of desired stepper positions
-unsigned long startMillis;  //some global variables available anywhere in the program
-unsigned long currentMillis;
-const unsigned long period = 10000;  //the value is a number of milliseconds
+char RecByte;                     //store recieved character
+char motor;                       //motor flag
+int bEnterMenu, bReadMovement=0;  //flags 
+int movement_update=0;            //flags
+const int STEPS_PER_REV = 200;    //stepper motors step per revolution
+int steps;                        //steps
+boolean start_motor_b = 0;        //flags
+boolean stop_motor = 0;           //flags
+float movement;                   //distance to travel in mm
+int pitch = 2;                    //pitch of the linear guide, here: 2mm/revolution
+long positions[2]={0,0};          //Array of desired stepper positions
+unsigned long startMillis;        //time tracking 
+unsigned long currentMillis;      //time tracking 
+const unsigned long period = 10000; //the value is a number of milliseconds to wait 
 
 //-------------------------------function prototyping-------------------------------//-----------
-int get_steps(float movemment);
-void update_position(int steps);
-void run_motor(int steps);
-void command();
-int ReadInt();
+int get_steps(float movemment);   //function to return number of steps associated with movement
+void update_position(int steps);  //update array of the stepper positions
+void run_motor(int steps);        //run motors: this function actually runs the motors
+void command();                   //function to get serial inputs
+int ReadInt();                    //function to convert serial string input to integer number
 
 //-------------------------------creating an instance/object-------------------------------//-----------
 AccelStepper media_stepper(1, stepPin[0], dirPin[0]); // pin 3 = step, pin 2 = direction
@@ -73,8 +73,7 @@ void loop(){
       start_motor_b=0;
       bEnterMenu = 1;
     }
-  }  
-  
+  }    
   Serial.println(positions[0]);
   Serial.println(positions[1]);
   Serial.println(motor);
@@ -94,13 +93,13 @@ void command(){
       RecByte = Serial.read();
       switch(RecByte){
           case 'a':
-              Serial.println("Please enter movement in mm :");
+              Serial.println("Please enter movement in mm for motor a :");
               motor = 'a';
               bReadMovement = 1;
               stop_motor = 0;
               break;
           case 'b':
-              Serial.println("Please enter movement in mm :");
+              Serial.println("Please enter movement in mm for motor b :");
               motor = 'b';
               bReadMovement = 1;
               stop_motor = 0;
@@ -125,6 +124,7 @@ void command(){
      }
   }
 }
+
 void update_position(int steps){
   if(motor=='a'){
     positions[0] = positions[0]+steps;
@@ -132,8 +132,8 @@ void update_position(int steps){
     positions[1] = positions[1]+steps;
   }
 }
+
 void run_motor(int steps){ 
- 
 //  positions[0] = steps;
 //  positions[1] = 2000;
   steppers.moveTo(positions);
@@ -150,7 +150,6 @@ int ReadInt(){
     //Serial.println(integer_value);
     return integer_value ;
   }else{
-    
     return 0;
   }
 }
