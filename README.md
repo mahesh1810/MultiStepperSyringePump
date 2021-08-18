@@ -13,4 +13,4 @@ Output:
 
 Check out the system in operation: https://www.youtube.com/watch?v=T5XUcyTErbg&ab_channel=maheshlokhande
 
-<img src="20210818_131010.jpg" width="500" height="1000">
+<img src="images/20210818_131010.jpg" width="500" height="1000">
