@@ -3,8 +3,8 @@
 This repo contains an Arduino code to operate multiple stepper motors for their application as an automatic syringe pump.
 
 Serial Inputs:  
-a---> Enter distance linear guide 'a' has to move :  
-b---> Enter distance linear guide 'b' has to move :  
+a---> Enter distance linear guide 'a' has to move in mm :  
+b---> Enter distance linear guide 'b' has to move in mm :  
 g---> Run motor 'a' by a specific distance then wait for a 'period' and then run motor 'b' by a specific distance. Note: specific distances are hard coded and can be changed by modifying the code  
 s---> Stop all the motors   
 
