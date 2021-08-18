@@ -1,6 +1,6 @@
 # MultiStepperSyringePump
 
-This repo contains Arduino code to operate multiple stepper motors for their application as an automatic syringe pump.
+This repo contains an Arduino code to operate multiple stepper motors for their application as an automatic syringe pump.
 
 Serial Inputs:  
 a---> Enter distance linear guide 'a' has to move :  
