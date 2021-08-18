@@ -5,7 +5,7 @@ This repo contains Arduino code to operate multiple stepper motors for their app
 Serial Inputs:  
 a---> Enter distance linear guide 'a' has to move :  
 b---> Enter distance linear guide 'b' has to move :  
-g---> Run motor 'a' by specific distance then wait for 'period' and then run motor 'b' by specific distance. Note: specific distances are hard coded and can be changed by modifying the code  
+g---> Run motor 'a' by a specific distance then wait for a 'period' and then run motor 'b' by a specific distance. Note: specific distances are hard coded and can be changed by modifying the code  
 s---> Stop all the motors   
 
 Output:
