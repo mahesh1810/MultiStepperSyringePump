@@ -13,5 +13,4 @@ Output:
 
 Check out the system in operation: https://www.youtube.com/watch?v=T5XUcyTErbg&ab_channel=maheshlokhande
 
-![alt text](20210818_131010.jpg)
-<img src="20210818_131010.jpg" width="100" height="200">
+<img src="20210818_131010.jpg" width="500" height="1000">
