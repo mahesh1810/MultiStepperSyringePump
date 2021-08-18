@@ -10,3 +10,7 @@ s---> Stop all the motors
 
 Output:
 - multiple stepper motors run individually and/or simultaneously depending on the serial input.
+
+Check out the system in operation: https://www.youtube.com/watch?v=T5XUcyTErbg&ab_channel=maheshlokhande
+
+
